@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.DemoService;
+import org.apache.camel.EndpointInject;
+import org.apache.camel.FluentProducerTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +16,20 @@ public class DemoController {
 
 	@Autowired
 	private DemoService demoService;
+	
+	@EndpointInject(uri = "geocoder:address:current")
+	private FluentProducerTemplate producer;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/echo")
 	public ResponseEntity<String> echo(@RequestParam String message) {
 		return demoService.echo(message);
-		//		System.out.println("echo Demo20171204");
-//		return new ResponseEntity<String>( "echo Demo20171204", HttpStatus.OK);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/hello",
+					produces = "text/plain")
+	public String hello() {
+		String where = producer.request(String.class);
+		return "Hello from Spring Boot and Camel. We are at: " + where;
+	}
+	
 }

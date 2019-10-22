@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "0795ea93-6a89-45ca-9b1e-11e10c070ed4",
+		"name": "demo20171204",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "echo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/echo?message=lLAA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"echo"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "lLAA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "camel geocod",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/camel/geocod",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"camel",
+						"geocod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "camel echo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/camel/echo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"camel",
+						"echo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "camel data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/camel/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"camel",
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
