@@ -60,5 +60,8 @@ public class CamelRouter extends RouteBuilder {
         from("direct:data")
                 .streamCaching()
                 .to("bean:CamelService?method=getData");
+
+        from("activemq:ExampleQueue")
+                .to("log:sample");
     }
 }
