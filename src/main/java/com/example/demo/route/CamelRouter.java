@@ -63,5 +63,21 @@ public class CamelRouter extends RouteBuilder {
 
         from("activemq:ExampleQueue")
                 .to("log:sample");
+
+        rest().description("postDataDesc")
+                .post("/data")
+                .to("direct:postData");
+
+        from("direct:postData")
+                .streamCaching()
+                .to("bean:CamelService?method=procData");
+
+        rest().description("getProcDataDesc")
+                .get("/procData")
+                .to("direct:procData");
+
+        from("direct:procData")
+                .streamCaching()
+                .to("bean:CamelService?method=getProcData");
     }
 }
