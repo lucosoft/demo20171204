@@ -61,6 +61,14 @@ public class CamelRouter extends RouteBuilder {
                 .streamCaching()
                 .to("bean:CamelService?method=getData");
 
+        rest().description("postDataValidate")
+                .post("/dataValidate")
+                .to("direct:postDataValid");
+
+        from("direct:postDataValid")
+                .streamCaching()
+                .to("bean:CamelService?method=procDataValidate");
+
         from("activemq:ExampleQueue")
                 .to("log:sample");
 

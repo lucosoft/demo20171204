@@ -8,5 +8,6 @@ public interface CamelService {
     public String echo();
     public HashMap getData();
     public void procData(Exchange exchange);
+    public void procDataValidate(Exchange exchange);
     public String getProcData();
 }

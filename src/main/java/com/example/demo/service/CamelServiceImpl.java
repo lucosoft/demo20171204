@@ -18,6 +18,7 @@ public class CamelServiceImpl implements CamelService {
     }
 
     public HashMap getData() {
+        System.out.println("getData: key1, key2");
         return new HashMap<String, String>() {{
             put("key1", "value1");
             put("key2", "value2");
@@ -28,8 +29,12 @@ public class CamelServiceImpl implements CamelService {
 
             String responseData = (String) exchange.getIn().getBody().toString();
             dataResponseMapper.mapFrom(responseData);
-            System.out.println("procData: " + responseData
-        );
+            System.out.println("procData: " + responseData);
+    }
+
+    public void procDataValidate(Exchange exchange) {
+        String responseData = (String) exchange.getIn().getBody().toString();
+        System.out.println("procDataValidate: " + responseData);
     }
 
     public String getProcData() {
